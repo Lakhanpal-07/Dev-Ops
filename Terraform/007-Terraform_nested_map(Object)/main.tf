@@ -1,16 +1,16 @@
 variable "rg_stg_map" {
-    type = map(object({
-        name    = string
-        location = string
-        tags    = map(string)  
-        storage_account = object ({
-            name                     = string
-            account_tier             = string
-            account_replication_type = string
-            account_kind             = string
-            access_tier              = string
-        }) 
-    }))
+  type = map(object({
+    name     = string
+    location = string
+    tags     = map(string)
+    storage_account = object({
+      name                     = string
+      account_tier             = string
+      account_replication_type = string
+      account_kind             = string
+      access_tier              = string
+    })
+  }))
 }
 
 resource "azurerm_resource_group" "rg" {
