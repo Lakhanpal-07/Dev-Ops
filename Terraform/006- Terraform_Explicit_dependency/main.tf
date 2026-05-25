@@ -6,7 +6,7 @@ resource "azurerm_resource_group"  "rg03" {
   location = "eastus"
 }
 
-#   storage account for the project
+#   storage account with explicit dependency for the project
 
 resource "azurerm_storage_account" "stg02" {
 
