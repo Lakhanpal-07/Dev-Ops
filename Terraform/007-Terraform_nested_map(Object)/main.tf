@@ -32,3 +32,21 @@ resource "azurerm_storage_account" "stg" {
   account_kind             = each.value.storage_account.account_kind
   access_tier              = each.value.storage_account.access_tier
 }
+
+
+# createing a virtual network with nested map
+variable "rg_vnet_map" {
+  type = map(object({
+    name     = string
+    location = string
+    tags     = map(string)
+    vnet = object({
+      name       = string
+      address_space = list(string)
+      subnets = list(object({
+        name           = string
+        address_prefix = string
+      }))
+    })
+  }))
+}
