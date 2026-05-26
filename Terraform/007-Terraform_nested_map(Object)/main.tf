@@ -34,19 +34,3 @@ resource "azurerm_storage_account" "stg" {
 }
 
 
-# createing a virtual network with nested map
-variable "rg_vnet_map" {
-  type = map(object({
-    name     = string
-    location = string
-    tags     = map(string)
-    vnet = object({
-      name       = string
-      address_space = list(string)
-      subnets = list(object({
-        name           = string
-        address_prefix = string
-      }))
-    })
-  }))
-}
