@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "rg" {
   name     = each.value.name
   location = each.value.location
 }
-
+#  NSG and VNET
 resource "azurerm_network_security_group" "nsg" {
   for_each = var.rg_nsg_vnet
 
