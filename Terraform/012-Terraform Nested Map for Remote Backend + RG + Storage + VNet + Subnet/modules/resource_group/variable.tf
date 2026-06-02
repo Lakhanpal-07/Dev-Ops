@@ -13,5 +13,15 @@ variable "rg01" {
         project     = "terraform"
       }
     }
+  
+rg02 = {
+      name     = "rg02"
+      location = "West US"
+      tags = {
+        environment = "prod"
+        project     = "terraform"
+      }
+    }
   }
+
 }
