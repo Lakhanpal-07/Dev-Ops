@@ -1,3 +1,4 @@
+#VNET CODE
 resource "azurerm_resource_group" "rg" {
   for_each = var.rg_nsg_vnet
 
