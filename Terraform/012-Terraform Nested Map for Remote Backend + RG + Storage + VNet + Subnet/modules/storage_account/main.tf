@@ -1,3 +1,6 @@
+
+# Terraform Nested Map for Remote Backend + RG + Storage + VNet + Subnet
+
 resource "azurerm_storage_account" "mystg01" {
     for_each = var.mystg
   name                     = each.value.name
