@@ -56,3 +56,10 @@ variable "rg_name_map" {
     }
   }
 }
+
+
+# List(string).
+variable "rg_list" {
+  type    = list(string)
+  default = ["rg03", "rg04" , "rg09" , "rg10"]
+}

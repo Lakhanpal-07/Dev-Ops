@@ -30,3 +30,10 @@ resource "azurerm_resource_group" "rg_map" {
   name     = each.value.name
   location = each.value.location
 }
+
+resource "azurerm_resource_group" "rg_list" {
+  for_each = var.rg_name_map
+  name     = each.value.name
+  location = each.value.location
+}
+
