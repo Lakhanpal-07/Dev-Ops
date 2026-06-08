@@ -52,3 +52,17 @@ terraform plan
 - **Scalability**: Add new RGs, VNets, or VMs simply by adding entries to the maps in `terraform.tfvars`.
 - **Dry Principle**: Logic is encapsulated in modules; the root module is purely for orchestration.
 - **Flexibility**: Individual resources can be updated or removed without affecting the entire structure.
+
+
+What those IPs mean
+For 10.123.0.0/24, the common breakdown is:
+
+10.123.0.0 = network address.
+
+10.123.0.1 = default gateway reserved by Azure.
+
+10.123.0.2 and 10.123.0.3 = reserved by Azure for DNS-related mapping.
+
+10.123.0.4 onward = assignable to VMs and other resources.
+
+10.123.0.255 = broadcast-style reserved address for the subnet.
