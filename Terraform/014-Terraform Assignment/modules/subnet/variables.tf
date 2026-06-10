@@ -1,8 +1,9 @@
-variable "subnets" {
+
+variable "subnet" {
   type = map(object({
-    subnet_name          = string
-    address_prefix       = list(string)
-    virtual_network_name = string
+    name                 = string
+    address_prefixes     = list(string)
     resource_group_name  = string
+    virtual_network_name = string
   }))
 }

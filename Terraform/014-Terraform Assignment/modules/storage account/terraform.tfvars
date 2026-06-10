@@ -1,5 +1,4 @@
-
-stgs = {
+stg = {
   stg01 = {
     name                     = "stg01"
     location                 = "eastus"
@@ -7,7 +6,6 @@ stgs = {
     account_tier             = "Standard"
     account_replication_type = "LRS"
     account_kind             = "StorageV2"
-    access_tier              = "Hot"
+
   }
 }
-  

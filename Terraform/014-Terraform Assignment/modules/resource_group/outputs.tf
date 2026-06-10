@@ -1,3 +1,3 @@
-output "rgs" {
-  value =azurerm_resource_group.rg01
+output "rg_names" {
+  value = [for rg in azurerm_resource_group.rg : rg.name]
 }

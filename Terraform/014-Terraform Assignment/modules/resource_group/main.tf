@@ -1,8 +1,7 @@
 
-resource "azurerm_resource_group" "rg01" {
+resource "azurerm_resource_group" "rg" {
+  for_each = var.rg_names
 
-  for_each = var.rgs
-
-  name  = each.value.name
+  name     = each.value.name
   location = each.value.location
 }
