@@ -141,3 +141,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+
+# Ignore Terraform working directory
+.terraform/
+
+# Ignore Terraform lock file
+.terraform.lock.hcl
