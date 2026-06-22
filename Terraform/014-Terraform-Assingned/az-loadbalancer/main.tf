@@ -22,3 +22,4 @@ resource "azurerm_lb_backend_address_pool" "backend" {
   name                 = "backendpool"
   resource_group_name  = var.rg_name
   loadbalancer_id
+}
