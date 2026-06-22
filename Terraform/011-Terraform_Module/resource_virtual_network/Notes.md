@@ -89,21 +89,25 @@ rg_nsg_vnet = {
 ## Usage
 
 ### 1. Initialize Terraform
+
 ```bash
 terraform init
 ```
 
 ### 2. Validate the configuration
+
 ```bash
 terraform validate
 ```
 
 ### 3. Review the execution plan
+
 ```bash
 terraform plan
 ```
 
 ### 4. Apply the configuration
+
 ```bash
 terraform apply
 ```
@@ -142,4 +146,3 @@ To destroy all created resources:
 
 ```bash
 terraform destroy
-```
