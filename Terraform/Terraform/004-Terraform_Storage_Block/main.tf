@@ -25,10 +25,10 @@ resource "azurerm_storage_container" "mypubcon" {
   container_access_type = "blob"
 }
 
-# resource "azurerm_storage_blob" "myblob" {
-#   name                   = "myblob01"
-#   storage_account_name   = azurerm_storage_account.stg01.name
-#   storage_container_name = azurerm_storage_container.mypubcon.name
-#   type                   = "Block"
-#   source                 = "index.html"
-# }
+resource "azurerm_storage_blob" "myblob" {
+  name                   = "myblob01"
+  storage_account_name   = azurerm_storage_account.stg01.name
+  storage_container_name = azurerm_storage_container.mypubcon.name
+  type                   = "Block"
+  source                 = "index.html"
+}

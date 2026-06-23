@@ -3,10 +3,10 @@
 This project uses Terraform to provision a basic Azure storage setup.
 
 The configuration creates:
--One Azure Resource Group
--One Azure Storage Account
--One Azure Storage Container
--One Azure Storage Blob uploaded from a local file
+- One Azure Resource Group
+- One Azure Storage Account
+- One Azure Storage Container
+- One Azure Storage Blob uploaded from a local file
 
 This project is useful for learning and practicing Terraform with Azure resources, especially storage-related services and resource dependencies.
 
@@ -22,7 +22,7 @@ The Terraform code provisions the following flow:
 ## Resources
 
 | Resource Type | Terraform Name | Description |
-| --- | --- | --- |
+|---|---|---|
 | Resource Group | `azurerm_resource_group.rg01` | Creates the Azure resource group |
 | Storage Account | `azurerm_storage_account.stg01` | Creates the storage account |
 | Storage Container | `azurerm_storage_container.mypubcon` | Creates the blob container |
@@ -77,7 +77,7 @@ Before running this project, ensure the following are available:
 
 ## Recommended File Structure
 
-A simple Terraform project commonly keeps Terraform files in the repository root and includes a `README.md` that explains usage and purpose.
+A simple Terraform project commonly keeps Terraform files in the repository root and includes a `README.md` that explains usage and purpose. 
 
 ```text
 .
@@ -167,7 +167,7 @@ This makes Terraform create resources in the correct order.
 
 ### Storage account name
 
-Azure storage account names must be globally unique, between 3 and 24 characters, and use only lowercase letters and numbers. Because of that, `stg01` may fail if the name is already taken.
+Azure storage account names must be globally unique, between 3 and 24 characters, and use only lowercase letters and numbers. Because of that, `stg01` may fail if the name is already taken. 
 
 A better example would be:
 
@@ -246,7 +246,8 @@ This project can be improved by adding:
 
 ## Best Practice Suggestion
 
-For better maintainability, avoid hardcoded values and move names, location, and configuration into variables. Terraform documentation also recommends keeping clear repository structure and README documentation for the root module.
-<!-- ## Summary -->
+For better maintainability, avoid hardcoded values and move names, location, and configuration into variables. Terraform documentation also recommends keeping clear repository structure and README documentation for the root module. 
 
-<!-- This is a basic Terraform practice project that creates an Azure Resource Group, Storage Account, Storage Container, and uploads a Blob from a local file. It is a good starter example for Azure storage automation using Terraform. -->
+## Summary
+
+This is a basic Terraform practice project that creates an Azure Resource Group, Storage Account, Storage Container, and uploads a Blob from a local file. It is a good starter example for Azure storage automation using Terraform.
