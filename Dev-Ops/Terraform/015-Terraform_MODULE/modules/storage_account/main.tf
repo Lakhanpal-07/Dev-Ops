@@ -6,9 +6,7 @@ resource "azurerm_storage_account" "storage_account_tf" {
   location                 = each.value.location
   account_tier             = each.value.account_tier
   account_replication_type = each.value.account_replication_type
-  tags                     = each.value.tags
 }
-
 resource "azurerm_storage_container" "storage_container_tf" {
   for_each              = var.mystg01
   name                  = each.value.storage_container_name
