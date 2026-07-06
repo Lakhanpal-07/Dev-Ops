@@ -1,11 +1,4 @@
-variable "rgs" {
-  type = map(object({
-    name     = string
-    location = string
-  })) 
-}
-
-
+variable "rgs" {}
 resource "azurerm_resource_group" "rg_tf" {
   for_each = var.rgs
   name     = each.value.name

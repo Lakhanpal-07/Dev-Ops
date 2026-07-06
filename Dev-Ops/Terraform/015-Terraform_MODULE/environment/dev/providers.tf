@@ -1,17 +1,17 @@
 terraform {
-    required_providers {
-        azurerm = {
-            source  = "hashicorp/azurerm"
-            version = "4.78.0"
-        }
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.78.0"
     }
-    backend "azurerm" {
-        resource_group_name  = "backend_stg"
-        storage_account_name = "backendmystg"
-        container_name       = "backendcont"
-        key                  = "dev01.tfstate"
-    }
+  }
+  backend "azurerm" {
+    resource_group_name  = "backend_stg"
+    storage_account_name = "backendmystg"
+    container_name       = "backendcont"
+    key                  = "dev01.tfstate"
+  }
 }
 provider "azurerm" {
-    features {}
+  features {}
 }
