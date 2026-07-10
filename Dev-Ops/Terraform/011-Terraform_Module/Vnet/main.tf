@@ -48,7 +48,7 @@ resource "azurerm_subnet_network_security_group_association" "subnet1_assoc" {
   network_security_group_id = azurerm_network_security_group.nsg[each.key].id
 }
 
-resource "azurerm_subnet_network_security_group_association" "subnet2_assoc" {
+# resource "azurerm_subnet_network_security_group_association" "subnet2_assoc" {
   for_each = var.rg_nsg_vnet
 
   subnet_id                 = azurerm_subnet.subnet2[each.key].id
