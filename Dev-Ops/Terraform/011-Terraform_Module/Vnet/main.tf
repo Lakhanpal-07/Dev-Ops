@@ -5,7 +5,9 @@ resource "azurerm_resource_group" "rg" {
   name     = each.value.name
   location = each.value.location
 }
-#  NSG and VNET
+
+#  NSG and VNET    (nsg & vnet in same module).
+
 resource "azurerm_network_security_group" "nsg" {
   for_each = var.rg_nsg_vnet
 
@@ -13,6 +15,8 @@ resource "azurerm_network_security_group" "nsg" {
   location            = each.value.location
   resource_group_name = azurerm_resource_group.rg[each.key].name
 }
+
+/Virtual Network.............
 
 resource "azurerm_virtual_network" "vnet" {
   for_each = var.rg_nsg_vnet
