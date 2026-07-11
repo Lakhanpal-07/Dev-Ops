@@ -1,4 +1,4 @@
-
+/resource creation in terraform .............
 #   resource group for stoarge account
 
 resource "azurerm_resource_group"  "rg03" {
