@@ -1,4 +1,4 @@
-/modulear blocks with nested map
+
 resource "azurerm_storage_account" "storage_account_tf" {
   for_each                 = var.mystg01
   name                     = each.value.name
