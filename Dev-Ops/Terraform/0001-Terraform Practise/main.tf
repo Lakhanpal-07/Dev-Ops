@@ -1,4 +1,4 @@
-
+resource group
 # # Variable assignment using terraform collection type string.
 
 # resource "azurerm_resource_group" "rg01" {
