@@ -6,3 +6,4 @@ variable "public_ip_map" {}
 variable "Bastion_host" {}
 variable "nic_map" {}
 variable "nsg_map" {}
+variable "vm_map" {}

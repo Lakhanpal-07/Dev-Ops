@@ -44,3 +44,10 @@ module "network_security_group" {
   source     = "../../modules/NSG"
   nsg        = var.nsg_map
 }
+
+module "vm_linux" {
+  depends_on = [ module.resource_group , module.virtual_network , module.subnet ,module.network_interface_card ]
+
+source = "../../modules/virtual-machine"
+vm_linux = var.vm_map
+}
