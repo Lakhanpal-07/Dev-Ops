@@ -6,12 +6,15 @@ resource "azurerm_network_security_group" "nsg" {
   location            = each.value.location
   resource_group_name = each.value.resource_group_name
   security_rule {
-    name                   = each.value.security_rule_name
-    priority               = each.value.priority
-    direction              = each.value.direction
-    access                 = each.value.access
-    protocol               = each.value.protocol
-    destination_port_range = each.value.destination_port_range
+    name                       = each.value.security_rule_name
+    priority                   = each.value.priority
+    direction                  = each.value.direction
+    access                     = each.value.access
+    protocol                   = each.value.protocol
+    destination_port_range     = each.value.destination_port_range
+    source_port_range          = each.value.source_port_range
+    source_address_prefix      = each.value.source_address_prefix
+    destination_address_prefix = each.value.destination_address_prefix
 
   }
 }
@@ -20,5 +23,5 @@ resource "azurerm_network_security_group" "nsg" {
 resource "azurerm_subnet_network_security_group_association" "nsg_assoc" {
   for_each                  = var.nsg
   subnet_id                 = data.azurerm_subnet.fetch_subnet[each.key].id
-  network_security_group_id = azurerm_network_security_group.nsg[each.key].id  
+  network_security_group_id = azurerm_network_security_group.nsg[each.key].id
 }
