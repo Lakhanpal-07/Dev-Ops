@@ -5,7 +5,7 @@ rg_name = {
   }
 }
 
-# storage account with container stoarge
+# storage account with container stoarge.
 
 stg0101 = {
   stg01 = {
