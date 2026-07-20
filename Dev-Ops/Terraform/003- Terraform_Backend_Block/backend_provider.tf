@@ -1,5 +1,5 @@
 
-# Terraform Backend Block and Provider Configuration...
+# Terraform Backend Block and Provider Configuration.
 terraform {
   required_providers {
     azurerm = {
