@@ -13,12 +13,13 @@ resource "azurerm_linux_virtual_machine" "vm_linux" {
   location              = each.value.location
   size                  = each.value.size
   admin_username        = each.value.admin_username
+  admin_password        = each.value.admin_password 
   network_interface_ids = [data.azurerm_network_interface.nic[each.key].id]
 
-  admin_ssh_key {
-    username   = each.value.admin_username
-    public_key = each.value.public_key
-  }
+  # admin_ssh_key {
+  #   username   = each.value.admin_username
+  #   public_key = each.value.public_key
+  # }
 
   os_disk {
     name                 = each.value.disk_name

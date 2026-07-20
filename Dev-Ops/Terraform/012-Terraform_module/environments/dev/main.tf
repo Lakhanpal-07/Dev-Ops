@@ -46,8 +46,8 @@ module "network_security_group" {
 }
 
 module "vm_linux" {
-  depends_on = [ module.resource_group , module.virtual_network , module.subnet ,module.network_interface_card ]
+  depends_on = [module.resource_group, module.virtual_network, module.subnet, module.network_interface_card]
 
-source = "../../modules/virtual-machine"
-vm_linux = var.vm_map
+  source   = "../../modules/virtual-machine"
+  vm_linux = var.vm_map
 }

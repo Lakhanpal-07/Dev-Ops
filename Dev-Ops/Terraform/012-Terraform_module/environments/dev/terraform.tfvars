@@ -9,7 +9,7 @@ rg_name = {
 
 stg0101 = {
   stg01 = {
-    name                     = "stgdev090801"
+    name                     = "stgdev7867654my090801"
     resource_group_name      = "rg-dev-01"
     location                 = "East US"
     account_tier             = "Standard"
@@ -68,35 +68,36 @@ public_ip_map = {
     location            = "eastus"
     allocation_method   = "Static"
   }
-  backend_ip = {
-    name                = "pip_backend"
-    resource_group_name = "rg-dev-01"
-    location            = "eastus"
-    allocation_method   = "Static"
-  }
+  # backend_ip = {
+  #   name                = "pip_backend"
+  #   resource_group_name = "rg-dev-01"
+  #   location            = "eastus"
+  #   allocation_method   = "Static"
+  # }
   Bastion_ip = {
     name                = "pip_Bastion"
     resource_group_name = "rg-dev-01"
     location            = "eastus"
     allocation_method   = "Static"
-  }
-  nat_ip = {
-    name                = "pip_nat"
-    resource_group_name = "rg-dev-01"
-    location            = "eastus"
-    allocation_method   = "Static"
-  }
-  lb_ip = {
-    name                = "pip_lb"
-    resource_group_name = "rg-dev-01"
-    location            = "eastus"
-    allocation_method   = "Static"
-  }
-  appgw_ip = {
-    name                = "pip_appgw"
-    resource_group_name = "rg-dev-01"
-    location            = "eastus"
-    allocation_method   = "Static"
+    # }
+    # nat_ip = {
+    #   name                = "pip_nat"
+    #   resource_group_name = "rg-dev-01"
+    #   location            = "eastus"
+    #   allocation_method   = "Static"
+    # }
+    # lb_ip = {
+    #   name                = "pip_lb"
+    #   resource_group_name = "rg-dev-01"
+    #   location            = "eastus"
+    #   allocation_method   = "Static"
+    # }
+    # appgw_ip = {
+    #   name                = "pip_appgw"
+    #   resource_group_name = "rg-dev-01"
+    #   location            = "eastus"
+    #   allocation_method   = "Static"
+    # }
   }
 }
 
@@ -151,6 +152,9 @@ nsg_map = {
     access                      = "Allow"
     protocol                    = "Tcp"
     destination_port_range      = "80"
+    source_port_range           = "*"
+    source_address_prefix       = "*"
+    destination_address_prefix  = "*"
     subnet_name                 = "frontend-subnet"
     virtual_network_name        = "vnet-dev-01"
     network_security_group_name = "frontend-nsg"
@@ -166,6 +170,9 @@ nsg_map = {
     access                      = "Allow"
     protocol                    = "Tcp"
     destination_port_range      = "1433"
+    source_port_range           = "*"
+    source_address_prefix       = "*"
+    destination_address_prefix  = "*"
     subnet_name                 = "backend-subnet"
     virtual_network_name        = "vnet-dev-01"
     network_security_group_name = "backend-nsg"
@@ -180,7 +187,10 @@ nsg_map = {
     access                      = "Allow"
     protocol                    = "Tcp"
     destination_port_range      = "22"
-    subnet_name                 = "admin-subnet"
+    source_port_range           = "*"
+    source_address_prefix       = "*"
+    destination_address_prefix  = "*"
+    subnet_name                 = "frontend-subnet"
     virtual_network_name        = "vnet-dev-01"
     network_security_group_name = "admin-nsg"
   }
@@ -195,7 +205,10 @@ nsg_map = {
     access                      = "Allow"
     protocol                    = "Tcp"
     destination_port_range      = "3389"
-    subnet_name                 = "admin-subnet"
+    source_port_range           = "*"
+    source_address_prefix       = "*"
+    destination_address_prefix  = "*"
+    subnet_name                 = "frontend-subnet"
     virtual_network_name        = "vnet-dev-01"
     network_security_group_name = "admin-nsg"
   }
@@ -204,14 +217,15 @@ nsg_map = {
 
 vm_map = {
   linux_vm = {
-    name                        = "mylinux-vm"
-    resource_group_name         = "rg-dev-01"
-    location                    = "eastus"
-    size                        = "Standard_D4_v5"
-    nic_name                    = "frontend_nic"
-    admin_username              = "Devops"
+    name                = "mylinux-vm"
+    resource_group_name = "rg-dev-01"
+    location            = "eastus"
+    size                = "Standard_D4_v5"
+    nic_name            = "frontend_nic"
+    admin_username      = "Devops"
+    admin_password      = "devops@12345"
     # network_security_group_name = "frontend-nsg"  # optional to attached with either subnet of vm depending upon vm number or security type
-    public_key                  = file("~/.ssh/id_rsa.pub")
+    # public_key                  = file("~/.ssh/id_rsa.pub")
 
     disk_name            = "frontend-osdisk"
     disk_caching         = "ReadWrite"
