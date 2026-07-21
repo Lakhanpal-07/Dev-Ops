@@ -1,4 +1,4 @@
-# ..................................................modules of root ..................................................
+# modules of root
 
 module "resource_group" {
   source = "../../modules/resource_group"
@@ -39,11 +39,11 @@ module "Azure_Bastion" {
   Bastion    = var.Bastion_host
 }
 
-module "network_security_group" {
-  depends_on = [module.resource_group, module.virtual_network, module.subnet]
-  source     = "../../modules/NSG"
-  nsg        = var.nsg_map
-}
+# module "network_security_group" {
+#   depends_on = [module.resource_group, module.virtual_network, module.subnet]
+#   source     = "../../modules/NSG"
+#   nsg        = var.nsg_map
+# }
 
 module "vm_linux" {
   depends_on = [module.resource_group, module.virtual_network, module.subnet, module.network_interface_card]

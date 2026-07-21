@@ -1,21 +1,43 @@
-variable "nsg" {}
+variable "nsg" {
+  type = map(object({
+    name                = string
+    location            = string
+    resource_group_name = string
+    rules = list(object({
+      name                       = string
+      priority                   = number
+      direction                  = string
+      access                     = string
+      protocol                   = string
+      destination_port_range     = string
+      source_port_range          = string
+      source_address_prefix      = string
+      destination_address_prefix = string
+    }))
+  }))
+}
+
+
 
 resource "azurerm_network_security_group" "nsg" {
   for_each            = var.nsg
   name                = each.value.name
   location            = each.value.location
   resource_group_name = each.value.resource_group_name
-  security_rule {
-    name                       = each.value.security_rule_name
-    priority                   = each.value.priority
-    direction                  = each.value.direction
-    access                     = each.value.access
-    protocol                   = each.value.protocol
-    destination_port_range     = each.value.destination_port_range
-    source_port_range          = each.value.source_port_range
-    source_address_prefix      = each.value.source_address_prefix
-    destination_address_prefix = each.value.destination_address_prefix
 
+  dynamic "security_rule" {
+    for_each = each.value.rules
+    content {
+      name                       = security_rule.value.name
+      priority                   = security_rule.value.priority
+      direction                  = security_rule.value.direction
+      access                     = security_rule.value.access
+      protocol                   = security_rule.value.protocol
+      destination_port_range     = security_rule.value.destination_port_range
+      source_port_range          = security_rule.value.source_port_range
+      source_address_prefix      = security_rule.value.source_address_prefix
+      destination_address_prefix = security_rule.value.destination_address_prefix
+    }
   }
 }
 
