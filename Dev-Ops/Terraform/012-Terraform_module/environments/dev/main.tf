@@ -45,6 +45,12 @@ module "Azure_Bastion" {
 #   nsg        = var.nsg_map
 # }
 
+
+# module "nat_gateway" {
+#   depends_on = [ module.resource_group , module.virtual_network , module.subnet,module.public_ip ]
+#   source =  "../../modules/NAT"
+#   nat = var.nat
+# }
 module "vm_linux" {
   depends_on = [module.resource_group, module.virtual_network, module.subnet, module.network_interface_card]
 

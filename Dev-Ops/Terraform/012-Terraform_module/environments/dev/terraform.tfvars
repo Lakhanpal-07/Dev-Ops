@@ -79,27 +79,29 @@ public_ip_map = {
     resource_group_name = "rg-dev-01"
     location            = "Central India"
     allocation_method   = "Static"
-    # }
-    # nat_ip = {
-    #   name                = "pip_nat"
-    #   resource_group_name = "rg-dev-01"
-    #   location            = "Central India"
-    #   allocation_method   = "Static"
-    # }
-    # lb_ip = {
-    #   name                = "pip_lb"
-    #   resource_group_name = "rg-dev-01"
-    #   location            = "Central India"
-    #   allocation_method   = "Static"
-    # }
-    # appgw_ip = {
-    #   name                = "pip_appgw"
-    #   resource_group_name = "rg-dev-01"
-    #   location            = "Central India"
-    #   allocation_method   = "Static"
-    # }
   }
+
+  # nat_ip = {
+  #   name                = "pip_nat"
+  #   resource_group_name = "rg-dev-01"
+  #   location            = "Central India"
+  #   allocation_method   = "Static"
+  # }
+
+  # lb_ip = {
+  #   name                = "pip_lb"
+  #   resource_group_name = "rg-dev-01"
+  #   location            = "Central India"
+  #   allocation_method   = "Static"
+  # }
+  # appgw_ip = {
+  #   name                = "pip_appgw"
+  #   resource_group_name = "rg-dev-01"
+  #   location            = "Central India"
+  #   allocation_method   = "Static"
+  # }
 }
+
 
 # nic card attached to Front_end & back_end Subnets
 
@@ -211,7 +213,18 @@ Bastion_host = {
 #   }
 # }
 
+# nat = {
+#   nat1 = {
+#     name                = "nat_vnet-dev-01"
+#     location            = "Central India"
+#     resource_group_name = "rg-dev-01"
+#     sku_name            = "Standard"
+#     pip_name            = "pip_nat"
+#     vnet_name           = "vnet-dev-01"
+#     subnet_name         = "frontend-subnet"
 
+#   }
+# }
 
 vm_map = {
   linux_vm = {
@@ -230,8 +243,8 @@ vm_map = {
     storage_account_type = "Standard_LRS"
 
     source_image_reference_publisher = "Canonical"
-    source_image_reference_offer     = "0001-com-ubuntu-pro-jammy"
-    source_image_reference_sku       = "22_04-lts-pro"
+    source_image_reference_offer     = "UbuntuServer"
+    source_image_reference_sku       = "16.04.0-LTS"
     source_image_reference_version   = "latest"
   }
 }
