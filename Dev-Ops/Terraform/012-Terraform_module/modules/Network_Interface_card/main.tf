@@ -1,7 +1,5 @@
+# NIC
 variable "nic" {}
-
-
-
 
 resource "azurerm_network_interface" "nic" {
   for_each            = var.nic
