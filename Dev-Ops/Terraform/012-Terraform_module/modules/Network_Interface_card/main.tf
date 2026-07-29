@@ -1,4 +1,4 @@
-# NIC
+# NIC  updated 
 variable "nic" {}
 
 resource "azurerm_network_interface" "nic" {
