@@ -1,3 +1,4 @@
+Dev ops
 ## DevOps Practice Lab
 
 This repository is a personal DevOps practice space used to test regular workflows, improve foundational skills, and experiment with new tools, rules, and better ways of working. It is designed as a safe place to practice infrastructure automation, CI/CD, security checks, documentation habits, and operational discipline before applying them to production work.
